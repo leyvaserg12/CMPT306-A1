@@ -48,8 +48,18 @@ texture = ExtResource("1_wdcc1")
 offset = Vector2(0, -100)
 
 [node name="Area2D" type="Area2D" parent="Player/PlayerSprite"]
+position = Vector2(0, -100)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/PlayerSprite/Area2D"]
 shape = SubResource("CircleShape2D_k438m")
+
+[node name="Obstacle" type="AnimatableBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstacle"]
+polygon = PackedVector2Array(-64, -87, -37, -74, -73, 0, -41, 64, 41, 65, 72, -1, 37, -74, 63, -87, 107, -1, 60, 95, -59, 95, -107, 1)
+
+[node name="Line2D" type="Line2D" parent="Obstacle/CollisionPolygon2D"]
+points = PackedVector2Array(-50, -80, -90, 0, -50, 80, 50, 80, 90, 0, 50, -80)
+width = 30.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
