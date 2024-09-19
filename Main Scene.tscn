@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://qx86r6yu7846"]
+[gd_scene load_steps=9 format=3 uid="uid://qx86r6yu7846"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_kbn0i"]
 [ext_resource type="Script" path="res://spawn_manager.gd" id="1_ugmbv"]
 [ext_resource type="Texture2D" uid="uid://cav5xifssbpl" path="res://circle.png" id="1_wdcc1"]
 [ext_resource type="PackedScene" uid="uid://cvlna82ruktbj" path="res://obstacle.tscn" id="2_3k0py"]
+[ext_resource type="Script" path="res://camera_2d.gd" id="5_mmgn5"]
 
 [sub_resource type="Shader" id="Shader_86duh"]
 code = "shader_type canvas_item;
@@ -33,6 +34,7 @@ radius = 15.0
 
 [node name="SpawnManager" type="Node" parent="." node_paths=PackedStringArray("target_node")]
 script = ExtResource("1_ugmbv")
+spawn_rate = 1.0
 obstacle_scene = ExtResource("2_3k0py")
 target_node = NodePath("..")
 
@@ -63,3 +65,7 @@ shape = SubResource("CircleShape2D_k438m")
 [node name="Obstacle" parent="." instance=ExtResource("2_3k0py")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+ignore_rotation = false
+rotation_smoothing_enabled = true
+rotation_smoothing_speed = 2.0
+script = ExtResource("5_mmgn5")
