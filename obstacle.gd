@@ -6,7 +6,7 @@ class_name Obstacle
 func _ready() -> void:
 	$CollisionPolygon2D.scale = Vector2.ONE*10.0
 	
-	# randomize the rotation of the obstacle
+	# randomize the initial rotation of the obstacle
 	$CollisionPolygon2D.rotate(randi_range(0,360))
 	
 func _physics_process(delta: float) -> void:
