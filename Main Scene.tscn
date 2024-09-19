@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://qx86r6yu7846"]
+[gd_scene load_steps=6 format=3 uid="uid://qx86r6yu7846"]
 
+[ext_resource type="Script" path="res://player.gd" id="1_kbn0i"]
 [ext_resource type="Texture2D" uid="uid://cav5xifssbpl" path="res://circle.png" id="1_wdcc1"]
 
 [sub_resource type="Shader" id="Shader_86duh"]
@@ -40,10 +41,11 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Player" type="Node2D" parent="."]
-position = Vector2(0, -100)
+script = ExtResource("1_kbn0i")
 
 [node name="PlayerSprite" type="Sprite2D" parent="Player"]
 texture = ExtResource("1_wdcc1")
+offset = Vector2(0, -100)
 
 [node name="Area2D" type="Area2D" parent="Player/PlayerSprite"]
 
