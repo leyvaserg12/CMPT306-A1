@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://qx86r6yu7846"]
+[gd_scene load_steps=5 format=3 uid="uid://qx86r6yu7846"]
 
 [ext_resource type="Texture2D" uid="uid://cav5xifssbpl" path="res://circle.png" id="1_wdcc1"]
 
@@ -23,6 +23,9 @@ void fragment() {
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ejh7u"]
 shader = SubResource("Shader_86duh")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_k438m"]
+radius = 15.0
+
 [node name="MainScene" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -37,6 +40,14 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Player" type="Node2D" parent="."]
+position = Vector2(0, -100)
 
 [node name="PlayerSprite" type="Sprite2D" parent="Player"]
 texture = ExtResource("1_wdcc1")
+
+[node name="Area2D" type="Area2D" parent="Player/PlayerSprite"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/PlayerSprite/Area2D"]
+shape = SubResource("CircleShape2D_k438m")
+
+[node name="Camera2D" type="Camera2D" parent="."]
